@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Aspirants - Your One Stop Exam Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide-react/0.263.1/lucide-react.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .bg-navy { background-color: #0A192F; }
+        .text-navy { color: #0A192F; }
+        .bg-orange-accent { background-color: #FF8C42; }
+        .text-orange-accent { color: #FF8C42; }
+        .border-orange-accent { border-color: #FF8C42; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
+        }
+
+        .btn-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-navy/90 backdrop-blur-md text-white border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <img src="The-aspirants-logo.jpeg" alt="Logo" class="h-12 w-12 rounded-lg object-cover shadow-lg border border-orange-accent/30" onerror="this.src='https://via.placeholder.com/150?text=TA'">
+                    <span class="text-xl font-bold tracking-tight">THE <span class="text-orange-accent">ASPIRANTS</span></span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-wider">
+                    <a href="#home" class="hover:text-orange-accent transition">Home</a>
+                    <a href="#exams" class="hover:text-orange-accent transition">Exams</a>
+                    <a href="#resources" class="hover:text-orange-accent transition">Resources</a>
+                    <a href="#social" class="hover:text-orange-accent transition">Community</a>
+                    <a href="#contact" class="hover:text-orange-accent transition">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="p-2 text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-navy text-white pt-24 px-6 flex flex-col space-y-6 text-lg">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#exams" onclick="toggleMenu()">Exams</a>
+        <a href="#resources" onclick="toggleMenu()">Resources</a>
+        <a href="#social" onclick="toggleMenu()">Community</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 animate-fade-in">
+                <div class="inline-block px-4 py-1 rounded-full bg-orange-accent/20 border border-orange-accent/30 text-orange-accent text-sm font-semibold uppercase tracking-widest">
+                    Study • Practice • Succeed
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+                    Your One Stop Platform for <span class="text-orange-accent">Competitive Exams</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl max-w-lg">
+                    Comprehensive guidance, quality resources, and daily motivation for SSC, Banking, Railway, and State Government exams.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://t.me/+N-3PynN7l-RmMWU9" class="bg-orange-accent hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold flex items-center btn-hover">
+                        Join Telegram <span class="ml-2">→</span>
+                    </a>
+                    <a href="http://www.youtube.com/@TheAspirants-o9y" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold btn-hover backdrop-blur-sm">
+                        Visit YouTube
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-orange-accent/10 rounded-full blur-3xl"></div>
+                <div class="glass-card p-8 rounded-3xl border border-white/10 relative z-10">
+                    <div class="space-y-6">
+                        <div class="p-4 bg-navy rounded-2xl flex items-center space-x-4 border border-white/5">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-500">✓</div>
+                            <div>
+                                <h4 class="text-white font-bold">Consistency is Key</h4>
+                                <p class="text-gray-400 text-sm">Join 10k+ aspirants today.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-navy rounded-2xl flex items-center space-x-4 border border-white/5 translate-x-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-500">★</div>
+                            <div>
+                                <h4 class="text-white font-bold">Expert Strategies</h4>
+                                <p class="text-gray-400 text-sm">Exam-oriented content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational Quote -->
+    <div class="bg-white py-12 border-y border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center italic text-xl md:text-2xl font-light text-navy">
+            "Success is not final, failure is not fatal: it is the courage to continue that counts."
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h2 class="text-navy text-3xl font-bold mb-6">About The Aspirants</h2>
+                <div class="w-20 h-1 bg-orange-accent mb-8"></div>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    The Aspirants is a dedicated platform created to guide students preparing for competitive exams with quality content, motivation, and exam-oriented strategies. We believe in democratizing education and providing every student with the tools they need to crack their dream government jobs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exams Grid -->
+    <section id="exams" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-navy text-4xl font-extrabold mb-4">Exams We Cover</h2>
+                <p class="text-gray-500">Comprehensive resources for various government sectors</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- SSC -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-accent/50 transition-all shadow-sm group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-navy mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SSC Exams</h3>
+                    <p class="text-gray-500 text-sm">CGL, CHSL, MTS, CPO. Complete math & reasoning strategies.</p>
+                </div>
+
+                <!-- Banking -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-accent/50 transition-all shadow-sm group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-navy mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Banking</h3>
+                    <p class="text-gray-500 text-sm">SBI, IBPS PO/Clerk, RBI Assistant. Speed math and GA updates.</p>
+                </div>
+
+                <!-- Railways -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-accent/50 transition-all shadow-sm group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-navy mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Railways</h3>
+                    <p class="text-gray-500 text-sm">NTPC, Group D, ALP. Dedicated focus on General Science.</p>
+                </div>
+
+                <!-- Defence -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-accent/50 transition-all shadow-sm group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-navy mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 012.5 2.5V17m-6 5.5A11 11 0 1122.766 10c0 .138-.01.274-.027.41"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Defence</h3>
+                    <p class="text-gray-500 text-sm">NDA, CDS basics. Physical and mental discipline guides.</p>
+                </div>
+
+                <!-- UPSC -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-accent/50 transition-all shadow-sm group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-navy mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.168.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Civil Services</h3>
+                    <p class="text-gray-500 text-sm">UPSC & State PSC. Analytical approach and current affairs.</p>
+                </div>
+
+                <!-- State Exams -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-accent/50 transition-all shadow-sm group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-navy mb-6 group-hover:bg-orange-accent group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">State Exams</h3>
+                    <p class="text-gray-500 text-sm">UPPBPB, BSSC, MPPEB, and other state-level positions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Resources Section -->
+    <section id="resources" class="py-24 bg-navy text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-8 leading-tight">Access Your <span class="text-orange-accent">Free Study Material</span></h2>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        We provide carefully curated notes, daily practice sheets, and previous year question papers absolutely free. Everything you need is stored in our centralized cloud storage.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center"><span class="w-5 h-5 bg-orange-accent rounded-full mr-3 flex items-center justify-center text-xs">✓</span> All PDF Study Resources</li>
+                        <li class="flex items-center"><span class="w-5 h-5 bg-orange-accent rounded-full mr-3 flex items-center justify-center text-xs">✓</span> Daily Practice Questions</li>
+                        <li class="flex items-center"><span class="w-5 h-5 bg-orange-accent rounded-full mr-3 flex items-center justify-center text-xs">✓</span> Exam Updates & Notifications</li>
+                    </ul>
+                    <a href="https://drive.google.com/drive/folders/1jwn9QoRBsXCxyzeE3OrX2JzwE8WNnH0p" target="_blank" class="bg-white text-navy px-10 py-4 rounded-xl font-bold hover:bg-orange-accent hover:text-white transition-all inline-block shadow-xl">
+                        Open Google Drive Library
+                    </a>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-orange-accent blur-3xl opacity-10"></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <div class="text-orange-accent font-bold text-3xl mb-2">500+</div>
+                            <div class="text-gray-400 text-sm uppercase font-semibold">Free PDFs</div>
+                        </div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 mt-8">
+                            <div class="text-orange-accent font-bold text-3xl mb-2">Daily</div>
+                            <div class="text-gray-400 text-sm uppercase font-semibold">Quizzes</div>
+                        </div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <div class="text-orange-accent font-bold text-3xl mb-2">Short</div>
+                            <div class="text-gray-400 text-sm uppercase font-semibold">Tricks</div>
+                        </div>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 mt-8">
+                            <div class="text-orange-accent font-bold text-3xl mb-2">Live</div>
+                            <div class="text-gray-400 text-sm uppercase font-semibold">Updates</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Links -->
+    <section id="social" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-navy text-4xl font-extrabold mb-4">Connect with Our Community</h2>
+                <p class="text-gray-500">Join our platforms for daily engagement and shortcuts</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- YouTube -->
+                <div class="group border border-gray-100 rounded-3xl p-8 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center text-white">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">YouTube</h4>
+                            <p class="text-xs text-red-600 font-semibold uppercase">@TheAspirants</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 text-sm">Follow for long-form concepts, complete chapters, and exam strategy videos.</p>
+                    <a href="http://www.youtube.com/@TheAspirants-o9y" class="block text-center py-3 bg-red-600 text-white rounded-xl font-bold hover:bg-red-700">Subscribe Channel</a>
+                </div>
+
+                <!-- Instagram Main -->
+                <div class="group border border-gray-100 rounded-3xl p-8 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-2xl flex items-center justify-center text-white">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Instagram</h4>
+                            <p class="text-xs text-pink-600 font-semibold uppercase">@_theaspirants</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 text-sm">Stay updated with official news, exam notifications, and motivational posts.</p>
+                    <a href="https://www.instagram.com/_theaspirants" class="block text-center py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl font-bold">Follow Main Page</a>
+                </div>
+
+                <!-- Telegram -->
+                <div class="group border border-gray-100 rounded-3xl p-8 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.703.064-1.237-.465-1.917-.911-1.064-.698-1.665-1.132-2.698-1.812-1.194-.786-.42-1.217.261-1.924.178-.184 3.282-3.01 3.342-3.267.008-.032.014-.15-.056-.212-.07-.063-.173-.041-.247-.024-.105.024-1.782 1.135-5.043 3.336-.478.328-.911.488-1.299.479-.427-.009-1.248-.242-1.859-.441-.75-.244-1.344-.373-1.292-.787.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.331-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.098.154.23.167.323.014.098.018.312.01.442z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Telegram</h4>
+                            <p class="text-xs text-blue-500 font-semibold uppercase">Community</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6 text-sm">Join the main community channel for PDFs, daily quizzes, and instant updates.</p>
+                    <a href="https://t.me/+N-3PynN7l-RmMWU9" class="block text-center py-3 bg-blue-500 text-white rounded-xl font-bold">Join Community</a>
+                </div>
+            </div>
+
+            <!-- Motivational Shorts Card -->
+            <div class="mt-12 bg-gray-50 rounded-3xl p-8 border border-gray-100 flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-navy">Need a quick boost?</h3>
+                    <p class="text-gray-500">Follow our Dedicated Shorts Channel for Daily Discipline.</p>
+                </div>
+                <a href="https://www.instagram.com/the_aspirants_shorts" class="bg-navy text-white px-8 py-3 rounded-xl font-bold flex items-center hover:bg-orange-accent transition">
+                    <span class="mr-2">📸</span> Instagram Shorts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 bg-navy p-12 text-white flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">Let's connect.</h2>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            For guidance, updates, and daily motivation — connect with The Aspirants. We are here to help you achieve your dreams.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-orange-accent">📍</span>
+                            <span>Online Learning Community, India</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-orange-accent">📩</span>
+                            <span>support@theaspirants.in</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-12">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Full Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:border-orange-accent focus:bg-white focus:ring-0 transition" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Email</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:border-orange-accent focus:bg-white focus:ring-0 transition" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Subject</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:border-orange-accent focus:bg-white focus:ring-0 transition" placeholder="Guidance Query">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:border-orange-accent focus:bg-white focus:ring-0 transition" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-orange-accent text-white font-bold py-4 rounded-xl hover:bg-orange-600 transition shadow-lg">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy pt-20 pb-10 text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="The-aspirants-logo.jpeg" alt="Logo" class="h-10 w-10 rounded-lg" onerror="this.src='https://via.placeholder.com/150'">
+                        <span class="text-2xl font-bold">THE <span class="text-orange-accent">ASPIRANTS</span></span>
+                    </div>
+                    <p class="text-gray-400 max-w-sm mb-6">
+                        Leading the way in digital preparation for all competitive exams. Hard work, consistency, and expert guidance are our pillars of success.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-orange-accent">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#resources" class="hover:text-white">Study Resources</a></li>
+                        <li><a href="#social" class="hover:text-white">Motivation Zone</a></li>
+                        <li><a href="#exams" class="hover:text-white">Exam Updates</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-orange-accent">Legal</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Disclaimer</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>© 2024 The Aspirants. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="http://www.youtube.com/@TheAspirants-o9y" class="hover:text-white">YouTube</a>
+                    <a href="https://www.instagram.com/_theaspirants" class="hover:text-white">Instagram</a>
+                    <a href="https://t.me/+N-3PynN7l-RmMWU9" class="hover:text-white">Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Smooth Scroll Offset Adjustment
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                const navHeight = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        // Contact Form Handling (Simulated)
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerText = "Message Sent Successfully!";
+                btn.classList.replace('bg-orange-accent', 'bg-green-500');
+                e.target.reset();
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.replace('bg-green-500', 'bg-orange-accent');
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
