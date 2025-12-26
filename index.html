@@ -37,6 +37,13 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+
+        /* Logo Transparency Effect */
+        .logo-transparent {
+            mix-blend-mode: multiply;
+            filter: contrast(1.1);
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -46,7 +53,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center space-x-3">
-                    <img src="The-aspirants-logo.jpeg" alt="Logo" class="h-12 w-12 rounded-lg object-cover shadow-lg border border-orange-accent/30" onerror="this.src='https://via.placeholder.com/150?text=TA'">
+                    <img src="The-aspirants-logo.jpeg" alt="Logo" class="h-12 w-12 rounded-lg object-cover logo-transparent" onerror="this.src='https://via.placeholder.com/150?text=TA'">
                     <span class="text-xl font-bold tracking-tight">THE <span class="text-orange-accent">ASPIRANTS</span></span>
                 </div>
                 
@@ -100,23 +107,17 @@
                     </a>
                 </div>
             </div>
-            <div class="hidden md:block relative">
-                <div class="absolute -top-10 -right-10 w-64 h-64 bg-orange-accent/10 rounded-full blur-3xl"></div>
-                <div class="glass-card p-8 rounded-3xl border border-white/10 relative z-10">
-                    <div class="space-y-6">
-                        <div class="p-4 bg-navy rounded-2xl flex items-center space-x-4 border border-white/5">
-                            <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-500">✓</div>
-                            <div>
-                                <h4 class="text-white font-bold">Consistency is Key</h4>
-                                <p class="text-gray-400 text-sm">Join 10k+ aspirants today.</p>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-navy rounded-2xl flex items-center space-x-4 border border-white/5 translate-x-4">
-                            <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-500">★</div>
-                            <div>
-                                <h4 class="text-white font-bold">Expert Strategies</h4>
-                                <p class="text-gray-400 text-sm">Exam-oriented content.</p>
-                            </div>
+            <div class="hidden md:block relative text-center">
+                <div class="absolute inset-0 bg-orange-accent/10 rounded-full blur-3xl"></div>
+                <!-- Main Feature Logo -->
+                <img src="The-aspirants-logo.jpeg" alt="The Aspirants Main" class="mx-auto w-64 h-64 rounded-3xl object-cover logo-transparent shadow-2xl relative z-10 border border-white/10" onerror="this.style.display='none'">
+                
+                <div class="mt-8 glass-card p-6 rounded-2xl border border-white/10 relative z-10 inline-block">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-500">✓</div>
+                        <div class="text-left">
+                            <h4 class="text-white font-bold text-sm">Consistent Preparation</h4>
+                            <p class="text-gray-400 text-xs">Join our focused community.</p>
                         </div>
                     </div>
                 </div>
@@ -339,7 +340,7 @@
                         </div>
                         <div class="flex items-center space-x-4">
                             <span class="text-orange-accent">📩</span>
-                            <span>support@theaspirants.in</span>
+                            <span>theaspirants4443@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -376,7 +377,7 @@
             <div class="grid md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="The-aspirants-logo.jpeg" alt="Logo" class="h-10 w-10 rounded-lg" onerror="this.src='https://via.placeholder.com/150'">
+                        <img src="The-aspirants-logo.jpeg" alt="Logo" class="h-10 w-10 rounded-lg logo-transparent" onerror="this.src='https://via.placeholder.com/150'">
                         <span class="text-2xl font-bold">THE <span class="text-orange-accent">ASPIRANTS</span></span>
                     </div>
                     <p class="text-gray-400 max-w-sm mb-6">
@@ -471,5 +472,4 @@
         });
     </script>
 </body>
-
 </html>
